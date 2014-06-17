@@ -48,7 +48,6 @@ public class BDG9 {
 		
 		db.execSQL("create table NOTA(IDETAPA char(8)not null,CARNET char(7) not null,NOTAALUMNO FLOAT(3) not null,primary key (IDETAPA,CARNET));");
 	
-		
 		//triggers//13 triggers fk 
 		
 		db.execSQL("CREATE TRIGGER fk_nota_alumno BEFORE INSERT ON NOTA FOR EACH ROW BEGIN SELECT CASE WHEN((SELECT CARNET FROM ALUMNO WHERE CARNET=NEW.CARNET)IS NULL)THEN RAISE(ABORT,'No existe el alumno')END;END");
@@ -68,8 +67,7 @@ public class BDG9 {
 	e.printStackTrace();
 	}
 	}
-	
-	
+
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	// TODO Auto-generated method stub
@@ -83,9 +81,7 @@ public class BDG9 {
 	public void cerrar(){
 	DBHelper.close();
 	}
-	
-	
-	
+
 	public String insertar(Alumno alumno){
 		String regInsertados="Numero de Registro Insertado =";
 		long contador=-2;
